@@ -1,0 +1,33 @@
+package Med.Voll.api.endereco;
+
+import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Embeddable
+@Getter
+@AllArgsConstructor
+public class Endereco {
+
+    private String logradouro;
+    private String bairro;
+    private String cep;
+    private String numero;
+    private String complemento;
+    private String cidade;
+    private String uf;
+
+    // Construtor obrigatório para JPA/Hibernate
+    public Endereco() {
+    }
+
+    public Endereco(DadosEndereco dados) {
+        this.logradouro = dados.logradouro();
+        this.bairro = dados.bairro();
+        this.cep = dados.cep();
+        this.numero = dados.numero();
+        this.complemento = dados.complemento();
+        this.cidade = dados.cidade();
+        this.uf = dados.uf();
+    }
+}
